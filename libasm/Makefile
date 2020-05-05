@@ -14,16 +14,16 @@ OBJS = $(SRCS:.s=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rc $@ $^
-	ranlib $@
+	@ar rc $@ $^
+	@ranlib $@
 
 %.o : %.s
-	$(NASM) $<
+	@$(NASM) $<
 
 clean :
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean : clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean $(NAME)
