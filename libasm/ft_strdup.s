@@ -11,9 +11,10 @@ _ft_strdup:
 	push rdi
 	mov rdi, rax
 	inc rdi
+	mov rdi, -1
 	call _malloc
 	cmp rax, 0
-	jz _error
+	je _error
 	mov rdi, rax
 	pop rsi
 	call _ft_strcpy
@@ -21,10 +22,10 @@ _ft_strdup:
 	pop rbp
 	ret
 _error:
-	push rax
 	call ___error
-	pop qword[rax]
+	mov qword[rax], 12
+	mov rax, 0
 	pop rdi
 	pop rsi
-	mov rax, 0
+	pop rbp
 	ret

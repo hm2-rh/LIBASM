@@ -13,7 +13,17 @@ char	*ft_strdup(const char *s1);
 
 int		main()
 {
-	char *s = "EveryThing Is";
+	ssize_t  size = 10;
+	char *s;
+	s = malloc(size);
+	if (s == NULL)
+	{
+		printf("errno = %d\n", errno);
+		//return (-1);
+	}
+	memset(s, 'a', size);
 	char *dup = ft_strdup(s);
-	printf("%s\nerrno= %d\n", dup, errno);
+	printf("errno = %d\n", errno);
+	(void)dup;
+	printf("%s\n", dup);
 }
