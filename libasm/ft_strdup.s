@@ -11,7 +11,6 @@ _ft_strdup:
 	push rdi
 	mov rdi, rax
 	inc rdi
-	mov rdi, -1
 	call _malloc
 	cmp rax, 0
 	je _error
@@ -22,8 +21,6 @@ _ft_strdup:
 	pop rbp
 	ret
 _error:
-	call ___error
-	mov qword[rax], 12
 	mov rax, 0
 	pop rdi
 	pop rsi

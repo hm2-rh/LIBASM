@@ -1,5 +1,6 @@
 NAME = libasm.a
 NASM = nasm -f macho64
+CC = gcc -Wall -Wextra -Werror
 
 SRCS = ft_read.s \
 	   ft_write.s \
@@ -22,7 +23,10 @@ $(NAME): $(OBJS)
 clean:
 	rm -rf $(OBJS)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
+
+test: $(NAME)
+	cc main.c -L. -lasm -o asm
 
 re: fclean $(NAME)
